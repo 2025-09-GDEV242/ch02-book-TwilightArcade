@@ -11,16 +11,72 @@ class Book
     // The fields.
     private String author;
     private String title;
+    private int pages;
+    private String refNumber;
+    private int borrowed;
+    private final boolean courseText;
 
     /**
      * Set the author and title fields when this object
      * is constructed.
      */
-    public Book(String bookAuthor, String bookTitle)
-    {
+    public Book(String bookAuthor, String bookTitle, int bookPages, boolean courseText){
+    
+
+
+
         author = bookAuthor;
         title = bookTitle;
+        pages = bookPages;
+        refNumber = "";
+        borrowed = 0;
+        courseText = courseText; 
+        
     }
 
-    // Add the methods here ...
-}
+     public void bookAuthor() {
+        System.out.println (author);
+    }
+    
+     public void bookTitle() {
+         System.out.println (title);
+     }
+     
+     public int getPages() {
+        return pages;  
+     }
+     
+     public void printDetails() {
+         String ref = (refNumber.length() > 0) ? refNumber : "zzz";
+         System.out.println ("Title: " + title +
+                             ", Author: " + author +
+                             ", Pages: " + pages +
+                             ", Ref:" + ref +
+                             ", Times Borrowed:" + borrowed + 
+                             ", Used as Course Text: " + (courseText ? "Yes" : "No"));
+     }
+     
+     public void setRefNumber(String ref) { 
+         if (ref.length() >= 3) {
+             refNumber = ref;
+            } else { 
+                System.out.println("Error: Must be atleast 3 characters long.");
+                
+         }
+        }
+        
+     public String getRefNumber(){
+         return refNumber;
+     }
+     
+     public void borrow() {
+         borrowed++;
+     }
+     
+     public boolean isCourseText() {
+         return courseText;
+     }
+}    
+
+
+
