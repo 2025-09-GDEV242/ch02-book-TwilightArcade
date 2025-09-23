@@ -3,8 +3,8 @@
  * This might form part of a larger application such
  * as a library system, for instance.
  *
- * @author (Insert your name here.)
- * @version (Insert today's date here.)
+ * @author (Trevor McQueen)
+ * @version (9/22/2025)
  */
 class Book
 {
@@ -18,9 +18,10 @@ class Book
 
     /**
      * Set the author and title fields when this object
-     * is constructed.
-     */
-    public Book(String bookAuthor, String bookTitle, int bookPages, boolean courseText){
+     * is constructed. 
+     */ 
+    public Book(String bookAuthor, String bookTitle, int bookPages, boolean courseText)
+    {
     
 
 
@@ -30,16 +31,18 @@ class Book
         pages = bookPages;
         refNumber = "";
         borrowed = 0;
-        courseText = courseText; 
+        this.courseText = courseText;
         
     }
+        
+    
 
-     public void bookAuthor() {
-        System.out.println (author);
+     public String getAuthor() {
+        return author;
     }
     
-     public void bookTitle() {
-         System.out.println (title);
+     public String bookTitle() {
+         return title; 
      }
      
      public int getPages() {
@@ -47,14 +50,29 @@ class Book
      }
      
      public void printDetails() {
-         String ref = (refNumber.length() > 0) ? refNumber : "zzz";
-         System.out.println ("Title: " + title +
-                             ", Author: " + author +
-                             ", Pages: " + pages +
-                             ", Ref:" + ref +
-                             ", Times Borrowed:" + borrowed + 
-                             ", Used as Course Text: " + (courseText ? "Yes" : "No"));
-     }
+         String ref;
+         if (refNumber.length() > 0) {
+             ref = refNumber;
+            } else { 
+                ref ="zzz";
+    
+            }
+            System.out.println("Title: " + title);
+            System.out.println("Author: " + author);
+            System.out.println("Pages: " + pages);
+            System.out.println("Ref: " + ref);
+            System.out.println("Times Borrowed: " + borrowed);
+            
+            if (courseText) {
+                System.out.println("Used as Course Text: Yes");
+            } else {
+                System.out.println("Used as Course Text: NO");
+            }
+                
+                
+            }
+         
+     
      
      public void setRefNumber(String ref) { 
          if (ref.length() >= 3) {
